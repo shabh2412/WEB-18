@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1>Front End</h1>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+    container = document.querySelector('#container');
+
+    var investorArr = JSON.parse(localStorage.getItem('investorsData'));
+    // console.log(investorArr);
+    investorArr.forEach(function (el) {
+    var div = document.createElement('div');
+    
+    var avatar = document.createElement('img');
+    avatar.setAttribute('src',el.investorImage);
+
+    var name = document.createElement('h3');
+    name.innerText = el.investorName;
+
+    var role = document.createElement('p');
+    role.innerText = el.investorRole;
+
+    var imgLogo = document.createElement('img');
+    imgLogo.setAttribute('src', el.investorCompanyLogo);
+
+    div.append(avatar,name,role,imgLogo);
+    container.append(div);
+    });
+</script>
